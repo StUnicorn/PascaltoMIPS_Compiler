@@ -1,0 +1,28 @@
+program -> program_heading semicolon block DOT
+block -> statement_part
+statement_part -> compound_statement
+compound_statement -> RESERVED_BEGIN statement_sequence RESERVED_END
+statement_sequence -> statement_sequence semicolon statement
+statement -> closed_statement
+closed_statement -> non_labeled_closed_statement
+non_labeled_closed_statement -> <empty>
+semicolon -> SEMI_COLON
+statement_sequence -> statement
+statement -> closed_statement
+closed_statement -> non_labeled_closed_statement
+non_labeled_closed_statement -> procedure_statement
+procedure_statement -> identifier params
+params -> LPAREN actual_parameter_list RPAREN
+actual_parameter_list -> actual_parameter
+actual_parameter -> expression
+expression -> simple_expression
+simple_expression -> term
+term -> factor
+factor -> exponentiation
+exponentiation -> primary
+primary -> unsigned_constant
+unsigned_constant -> STRING
+identifier -> IDENTIFIER
+semicolon -> SEMI_COLON
+program_heading -> RESERVED_PROGRAM identifier
+identifier -> IDENTIFIER
